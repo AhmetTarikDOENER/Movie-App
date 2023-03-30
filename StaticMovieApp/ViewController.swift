@@ -37,6 +37,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         listMovie.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+            vc.detailImage = UIImage(named: listMovie[indexPath.row].moviePosterImage)!
+            vc.detailName = listMovie[indexPath.row].movieName
+            vc.timeLabel = listMovie[indexPath.row].duration
+            vc.imdb = String(listMovie[indexPath.row].rating)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = myTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
         cell.moviePosterImage.image = UIImage(named: listMovie[indexPath.row].moviePosterImage)
