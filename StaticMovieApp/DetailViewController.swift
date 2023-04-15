@@ -14,11 +14,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var movieDurationLabel: UILabel!
     @IBOutlet weak var imdbLabel: UILabel!
+    @IBOutlet weak var movieDescriptionLabel: UILabel!
     
     var detailImage = UIImage()
     var detailName = ""
     var timeLabel = ""
     var imdb = ""
+    var movieDescription = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,5 +28,6 @@ class DetailViewController: UIViewController {
         movieNameLabel.text = detailName
         movieDurationLabel.text = timeLabel
         imdbLabel.text = imdb
+        movieDescriptionLabel.text = movieDescription
     }
 }
